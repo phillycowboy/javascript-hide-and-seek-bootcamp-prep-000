@@ -17,10 +17,14 @@ function deepestChild(){
   return grandNode;
 }
 
-function increaseRankBy(n){
-var rankedList=document.querySelector('ul.ranked-list li');
-for(let i=0;i<rankedList.length;i++){
-  console.log("ranked-list: " + rankedList);
-}
-  
+function increaseRankBy(n) {
+  const rankedLists = document.querySelectorAll('.ranked-list');
+
+  for (let i = 0, l = rankedLists.length; i < l; i++) {
+    let children = rankedLists[i].children;
+
+    for (let j = 0, k = children.length; j < k; j++) {
+      children[j].innerHTML = parseInt(children[j].innerHTML) + n;
+    }
+  }
 }
